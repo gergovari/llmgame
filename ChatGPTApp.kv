@@ -1,0 +1,70 @@
+# chat_app.kv
+#:kivy 2.1.0
+#:import Window kivy.core.window.Window
+
+MDScreen:
+    name: 'chat_screen'
+    
+    # Right Configuration Drawer
+    ConfigDrawer:
+        id: config_drawer
+        anchor: 'right'
+        
+        MDBoxLayout:
+            orientation: 'vertical'
+            padding: dp(10)
+            spacing: dp(10)
+            
+	MDFillRoundedButton:
+		text: 'Select Config'
+		on_release: config_drawer.select_config_file()
+		MDBoxLayout:
+		orientation: 'horizontal'
+		adaptive_height: True
+
+	MDLabel:
+		text: "Text-to-Speech"
+		adaptive_width: True
+
+	MDCheckbox:
+		on_active: root.toggle_tts(self.active)
+    
+    # Left Placeholder Drawer
+    MDNavigationDrawer:
+        id: left_drawer
+        anchor: 'left'
+        # Can be customized later
+    
+    # Main Chat Area
+    MDBoxLayout:
+        orientation: 'vertical'
+        
+        ChatRecycleView:
+            id: chat_recycleview
+            viewclass: 'ChatMessage'
+            RecycleBoxLayout:
+                default_size: None, dp(68)
+                default_size_hint: 1, None
+                size_hint_y: None
+                height: self.minimum_height
+                orientation: 'vertical'
+        
+        # Chat Input Area
+        MDBoxLayout:
+            adaptive_height: True
+            padding: dp(10)
+            spacing: dp(10)
+            
+            MDTextField:
+                id: chat_input
+                hint_text: "Type a message..."
+                multiline: False
+                size_hint_x: 0.8
+            
+            MDIconButton:
+                icon: "send"
+                on_release: root.send_message(chat_input.text)
+            
+            MDIconButton:
+                icon: "reload"
+                on_release: root.send_message(chat_input.text)  # Optional retry logic

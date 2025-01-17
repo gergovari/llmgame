@@ -1,0 +1,29 @@
+[
+	{
+		"type": "Instruction",
+		"name": "Instructions",
+		"entries": [
+			"Be specific, descriptive, and creative.",
+			"Avoid repetition and avoid summarization.",
+			"Be concise. Write only 2-3 sentences max.",
+			"Use whatever tense the story does. If it uses second person (you/your) make sure to use second person. If it uses third person then use that.",
+			"Never tell what the player does, let them decide.",
+			"Continue the story from where it left off."
+		]
+	},
+	{
+		"type": "Essential",
+		"name": "Hero's name",
+		"entry": "Gordon Freeman"
+	},
+	{
+		"type": "Card",
+		"name": "Hovercar (aka floatie)",
+		"triggers": ["hovercar", "Hovercar", "floatie"],
+		"entry": "A cyberpunk car that can fly in any elevation, although it has a limited battery and the higher you go the faster it depletes."
+	},
+	{
+		"type": "Initial",
+		"entry": "You're a detective in New York. A hovercar just blew the cold wind past your face, making you feel the rain even more. In the neon lights near the club a shadowy figure"
+	}
+]
